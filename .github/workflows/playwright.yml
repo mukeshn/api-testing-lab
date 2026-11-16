@@ -43,7 +43,7 @@ jobs:
           node sut/server.mjs > sut.log 2>&1 &
           npx --yes wait-on@8 http://localhost:4173/health
       - run: mvn -B -ntp -f java/pom.xml verify
-      - uses: mikepenz/action-junit-report@v5
+      - uses: mikepenz/action-junit-report@v6
         if: always()
         with:
           report_paths: 'java/**/target/surefire-reports/TEST-*.xml'
